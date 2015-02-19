@@ -35,7 +35,7 @@ public class SimpleTCPServer {
 	 * Time (in milliseconds) the server spends for processing a message
 	 * (simulated processing time). 0 = no processing time needed.
 	 */
-	private static final long _processingDuration = 0;
+	private static final long _processingDuration = 2000;
 
 	/**
 	 * Main method
@@ -79,8 +79,9 @@ public class SimpleTCPServer {
 						new InputStreamReader(
 								clientConnectionSocket.getInputStream()));
 
+				//wait for stream
 				while (!reader.ready())
-					Thread.sleep(10);
+					Thread.sleep(20);
 
 				String data = reader.readLine();
 
